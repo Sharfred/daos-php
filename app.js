@@ -1,4 +1,4 @@
-const API = window.location.origin + '/api';
+const API = window.location.origin + '/php/api';
 let dashboardChart;
 
 // ─── AUTHENTICATION ──────────────────────────────
@@ -267,7 +267,7 @@ function setupCrud(prefix, urlPath, renderFunc, getBodyFunc, setFormFunc, clearF
         const btn = document.getElementById('btnSubmit_'+prefix.toLowerCase());
         btn.disabled = true; btn.textContent = 'Procesando...';
         try {
-            const res = await fetchAPI(API + (editId ? urlPath + '/' + editId : (urlPath==='/clientes'?'/registrar':urlPath)), {
+            const res = await fetchAPI(API + (editId ? urlPath + '/' + editId : urlPath), {
                 method: editId ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
             });
             const data = await res.json();

@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# For CRUD endpoints, route /clientes/1 to clientes.php?id=1
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9_-]+)/([0-9]+)$ $1.php?id=$2 [QSA,L]
+
+# Route /clientes to clientes.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [QSA,L]
+
+# Also support nested like /publico/registro-cliente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ $1/$2.php [QSA,L]
