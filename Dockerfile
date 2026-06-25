@@ -14,3 +14,6 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
 EXPOSE 80
+
+# Forzar la configuración correcta del MPM en tiempo de ejecución (Solución definitiva para Railway)
+CMD a2dismod mpm_event mpm_worker; a2enmod mpm_prefork; apache2-foreground
