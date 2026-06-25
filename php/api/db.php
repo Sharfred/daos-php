@@ -8,11 +8,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-$host     = getenv('MYSQLHOST') ?: (getenv('MYSQL_HOST') ?: 'localhost');
-$dbname   = getenv('MYSQLDATABASE') ?: (getenv('MYSQL_DATABASE') ?: 'daos_gym');
-$usuario  = getenv('MYSQLUSER') ?: (getenv('MYSQL_USER') ?: 'root');
-$password = getenv('MYSQLPASSWORD') ?: (getenv('MYSQL_PASSWORD') ?: '');
-$port     = getenv('MYSQLPORT') ?: (getenv('MYSQL_PORT') ?: '3306');
+// Revisar si existe una URL de conexión completa (Railway provee MYSQL_URL)
+$mysqlUrl = getenv('MYSQL_URL') ?: (getenv('MYSQLURL') ?: (getenv('DATABASE_URL') ?: ''));
+
+if (!empty($mysqlUrl)) {
+    // Parsear mysql://user:password@host:port/dbname
+    $parsedUrl = parse_url($mysqlUrl);
+    $host     = $parsedUrl['host'] ?? 'localhost';
+    $port     = $parsedUrl['port'] ?? '3306';
+    $dbname   = ltrim($parsedUrl['path'], '/') ?: 'daos_gym';
+    $usuario  = $parsedUrl['user'] ?? 'root';
+    $password = $parsedUrl['pass'] ?? '';
+} else {
+    // Fallback a variables individuales o locales
+    $host     = getenv('MYSQLHOST') ?: (getenv('MYSQL_HOST') ?: 'localhost');
+    $dbname   = getenv('MYSQLDATABASE') ?: (getenv('MYSQL_DATABASE') ?: 'daos_gym');
+    $usuario  = getenv('MYSQLUSER') ?: (getenv('MYSQL_USER') ?: 'root');
+    $password = getenv('MYSQLPASSWORD') ?: (getenv('MYSQL_PASSWORD') ?: '');
+    $port     = getenv('MYSQLPORT') ?: (getenv('MYSQL_PORT') ?: '3306');
+}
+
 $charset  = 'utf8mb4';
 
 $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=$charset";
