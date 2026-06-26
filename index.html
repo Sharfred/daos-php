@@ -809,75 +809,6 @@
         }
       }
 
-      /* === SECCIÓN EQUIPO Y MULTIMEDIA === */
-      .equipment-section {
-        margin-top: 64px;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-      }
-      .equipment-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 24px;
-        margin-top: 32px;
-      }
-      .equipment-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
-        transition: all 0.4s ease;
-      }
-      .equipment-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 40px rgba(197, 165, 90, 0.15);
-        border-color: var(--gold);
-      }
-      .equipment-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-      .equipment-info {
-        padding: 24px;
-      }
-      .equipment-info h4 {
-        color: var(--gold);
-        margin-bottom: 12px;
-        font-size: 1.25rem;
-      }
-      .equipment-info p {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        line-height: 1.6;
-      }
-      .media-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 32px;
-        margin-top: 64px;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .media-container video {
-        width: 100%;
-        border-radius: var(--radius);
-        border: 1px solid var(--border);
-        box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-      }
-      .media-container audio {
-        width: 100%;
-        max-width: 400px;
-        outline: none;
-      }
-      .media-container audio::-webkit-media-controls-panel {
-        background-color: var(--surface);
-      }
-
       /* === NUEVAS SECCIONES MARKETING === */
 
       /* Por qué DAO'S GYM */
@@ -1271,6 +1202,52 @@
         .hero h1 {
           font-size: 2rem;
         }
+      }      /* --- EQUIPMENT SECTION --- */
+      .equipment-section {
+        margin-top: 4rem;
+        padding: 3rem 2rem;
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--border-color);
+      }
+      .equipment-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2.5rem;
+      }
+      .equipment-card {
+        background-color: var(--bg-color);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .equipment-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        border-color: var(--gold);
+      }
+      .equipment-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: contain;
+        background-color: rgba(0,0,0,0.2);
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .equipment-card h4 {
+        color: var(--gold);
+        padding: 1.5rem 1.5rem 0.5rem;
+        margin: 0;
+        font-size: 1.25rem;
+      }
+      .equipment-card p {
+        color: var(--text-muted);
+        padding: 0 1.5rem 1.5rem;
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
       }
     </style>
   </head>
@@ -1412,57 +1389,91 @@
             tu vida no se ajusta a un horario fijo.
           </p>
         </div>
-        </div>
-        
-        <div class="equipment-section">
-          <h3 style="color: var(--gold); font-size: 1.5rem; margin-bottom: 8px;">Nuestro Mejor Equipo</h3>
-          <p style="color: var(--text-muted); margin-bottom: 32px;">Contamos con más de 20 máquinas especializadas. Aquí algunas de las favoritas:</p>
-          <div class="equipment-grid">
-            <div class="equipment-card">
-              <img src="img/smith.png" alt="Máquina Smith">
-              <div class="equipment-info">
-                <h4>Máquina Smith</h4>
-                <p>Ideal para sentadillas y press con seguridad total gracias a su sistema de rieles guiados.</p>
-              </div>
-            </div>
-            <div class="equipment-card">
-              <img src="img/hack.png" alt="Sentadilla Hack">
-              <div class="equipment-info">
-                <h4>Sentadilla Hack</h4>
-                <p>Perfecta para enfocar el trabajo en los cuádriceps protegiendo al 100% tu zona lumbar.</p>
-              </div>
-            </div>
-            <div class="equipment-card">
-              <img src="img/doble_polea.png" alt="Doble Polea Cruzada">
-              <div class="equipment-info">
-                <h4>Doble Polea Cruzada</h4>
-                <p>Estación versátil para trabajar pecho, brazos y hombros manteniendo una tensión muscular continua.</p>
-              </div>
-            </div>
-            <div class="equipment-card">
-              <img src="img/espalda.png" alt="Polea Alta/Baja para Espalda">
-              <div class="equipment-info">
-                <h4>Polea Alta/Baja para Espalda</h4>
-                <p>Desarrolla una espalda fuerte y ancha realizando jalones y remos de alto rendimiento.</p>
-              </div>
-            </div>
+      </div>
+    </section>
+
+     <div class="equipment-section">
+        <h3
+          class="section-subtitle"
+          style="
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+          "
+        >
+          Nuestro Mejor Equipo
+        </h3>
+        <p
+          class="section-subtitle"
+          style="margin-bottom: 30px; font-size: 0.95rem; text-align: center"
+        >
+          Contamos con más de 20 máquinas especializadas. Aquí algunas de las
+          favoritas:
+        </p>
+
+        <div class="equipment-grid">
+          <div class="equipment-card">
+            <img
+              src="img/smith.png"
+              alt="Máquina Smith"
+              onerror="
+                this.src =
+                  'https://via.placeholder.com/400x300/1e212b/c5a55a?text=Foto+Smith'
+              "
+            />
+            <h4>Máquina Smith</h4>
+            <p>
+              Ideal para sentadillas y press con seguridad total gracias a su
+              sistema de rieles guiados.
+            </p>
+          </div>
+          <div class="equipment-card">
+            <img
+              src="img/hack.png"
+              alt="Sentadilla Hack"
+              onerror="
+                this.src =
+                  'https://via.placeholder.com/400x300/1e212b/c5a55a?text=Foto+Hack'
+              "
+            />
+            <h4>Sentadilla Hack</h4>
+            <p>
+              Perfecta para enfocar el trabajo en los cuádriceps protegiendo al
+              100% tu zona lumbar.
+            </p>
+          </div>
+          <div class="equipment-card">
+            <img
+              src="img/doble_polea.png"
+              alt="Doble Polea"
+              onerror="
+                this.src =
+                  'https://via.placeholder.com/400x300/1e212b/c5a55a?text=Foto+Doble+Polea'
+              "
+            />
+            <h4>Doble Polea Cruzada</h4>
+            <p>
+              Estación versátil para trabajar pecho, brazos y hombros
+              manteniendo una tensión muscular continua.
+            </p>
+          </div>
+          <div class="equipment-card">
+            <img
+              src="img/espalda.png"
+              alt="Polea Alta y Baja"
+              onerror="
+                this.src =
+                  'https://via.placeholder.com/400x300/1e212b/c5a55a?text=Foto+Polea+Espalda'
+              "
+            />
+            <h4>Polea Alta/Baja para Espalda</h4>
+            <p>
+              Desarrolla una espalda fuerte y ancha realizando jalones y remos
+              de alto rendimiento.
+            </p>
           </div>
         </div>
-
-        <div class="media-container">
-          <video controls poster="img/hero-bg.png">
-            <source src="media/gym_video.mp4" type="video/mp4">
-            Tu navegador no soporta la etiqueta de video.
-          </video>
-          <div style="text-align: center;">
-            <h4 style="color: var(--gold); margin-bottom: 12px; font-size: 1.25rem;">¡Siente la energía de DAO'S GYM!</h4>
-            <audio controls>
-              <source src="media/gym_audio.mp3" type="audio/mpeg">
-              Tu navegador no soporta la etiqueta de audio.
-            </audio>
-          </div>
-        </div>
-
       </div>
     </section>
 
