@@ -1202,22 +1202,29 @@
         .hero h1 {
           font-size: 2rem;
         }
-      }      /* --- EQUIPMENT SECTION --- */
+      /* --- EQUIPMENT SECTION --- */
       .equipment-section {
         margin-top: 4rem;
-        padding: 3rem 2rem;
-        background-color: var(--card-bg);
-        border-radius: var(--border-radius);
-        border: 1px solid var(--border-color);
+        padding: 1rem 0;
       }
       .equipment-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
         margin-top: 2.5rem;
       }
+      @media (max-width: 1024px) {
+        .equipment-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .equipment-grid {
+          grid-template-columns: 1fr;
+        }
+      }
       .equipment-card {
-        background-color: var(--bg-color);
+        background-color: var(--card-bg);
         border-radius: var(--border-radius);
         overflow: hidden;
         border: 1px solid var(--border-color);
@@ -1230,17 +1237,16 @@
       }
       .equipment-card img {
         width: 100%;
-        height: 220px;
-        object-fit: contain;
-        background-color: rgba(0,0,0,0.2);
-        padding: 1.5rem;
-        border-bottom: 1px solid var(--border-color);
+        height: 250px;
+        object-fit: cover;
+        display: block;
       }
       .equipment-card h4 {
         color: var(--gold);
         padding: 1.5rem 1.5rem 0.5rem;
         margin: 0;
         font-size: 1.25rem;
+        text-align: center;
       }
       .equipment-card p {
         color: var(--text-muted);
@@ -1248,6 +1254,7 @@
         margin: 0;
         font-size: 0.95rem;
         line-height: 1.5;
+        text-align: center;
       }
     </style>
   </head>
